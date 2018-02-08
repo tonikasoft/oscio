@@ -1,0 +1,15 @@
+{
+  "name":         "Oscio",
+  "version":      "0.1",
+  "description":  "OSC implementation for Io.",
+  "author":       "Tonika",
+  "website":      "http://tonikasoft.com",
+  "readme":       "README.md",
+  "protos":       ["Oscio"],
+  "dependencies": {
+    "libs":     [],
+    "headers":  [],
+    "protos":   [],
+    "packages": []
+  }
+}

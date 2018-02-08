@@ -10,6 +10,6 @@
     "libs":     [],
     "headers":  [],
     "protos":   [],
-    "packages": []
+    "packages": ["https://github.com/bekkopen/jasmineio.git"]
   }
 }

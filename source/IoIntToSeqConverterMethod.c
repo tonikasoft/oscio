@@ -1,7 +1,7 @@
 //metadoc IntToSeqConverterMethod copyright Tonika, 2018
 //metadoc IntToSeqConverterMethod license MIT
 //metadoc IntToSeqConverterMethod category API
-//metadoc IntToSeqConverterMethod description Converts integer to `Sequence`.
+//metadoc IntToSeqConverterMethod description Converts integer to binary `Sequence`.
 
 #include "IoState.h"
 #include "IoSeq.h"
@@ -10,6 +10,7 @@
 
 static const char *protoId = "IntToSeqConverterMethod";
 
+// Io's API
 IoTag *IoIntToSeqConverterMethod_newTag(void *state) {
     IoTag *tag = IoTag_newWithName_(protoId);
 
@@ -37,7 +38,7 @@ IoIntToSeqConverterMethod *IoIntToSeqConverterMethod_proto(void *state) {
         IoObject_addMethodTable_(self, methodTable);
     }
 
-    IoObject_setSlot_to_(self, IOSYMBOL("inputTypeTag"), IOSYMBOL("i"));
+    IoObject_setSlot_to_(self, IOSYMBOL("typeTag"), IOSYMBOL("i"));
 
     return self;
 }
@@ -61,3 +62,4 @@ IoObject *IoIntToSeqConverterMethod_convert(IoIntToSeqConverterMethod *self, IoO
     memcpy(bytes, &value, 4);
     return IoSeq_newWithCString_(IOSTATE, bytes);
 }
+

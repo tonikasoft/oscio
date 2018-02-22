@@ -1,0 +1,18 @@
+//metadoc #{fromName}To#{toName}ConverterMethod copyright Tonika, 2018
+//metadoc #{fromName}To#{toName}ConverterMethod license MIT
+
+#ifndef IO#{fromName asUppercase}TO#{toName asUppercase}CONVERTERMETHOD_DEFINED
+#define IO#{fromName asUppercase}TO#{toName asUppercase}CONVERTERMETHOD_DEFINED 1
+
+#include "IoObject.h"
+
+typedef IoObject Io#{fromName}To#{toName}ConverterMethod;
+
+Io#{fromName}To#{toName}ConverterMethod *Io#{fromName}To#{toName}ConverterMethod_proto(void *state);
+Io#{fromName}To#{toName}ConverterMethod *Io#{fromName}To#{toName}ConverterMethod_rawClone(Io#{fromName}To#{toName}ConverterMethod *self);
+Io#{fromName}To#{toName}ConverterMethod *Io#{fromName}To#{toName}ConverterMethod_new(void *state);
+void Io#{fromName}To#{toName}ConverterMethod_free(Io#{fromName}To#{toName}ConverterMethod *self);
+
+IoObject *Io#{fromName}To#{toName}ConverterMethod_convert(IoObject *, IoObject *, IoObject *);
+
+#endif

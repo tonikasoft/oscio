@@ -1,0 +1,46 @@
+#!/usr/local/bin/io
+// Utility to generate a converter.
+// ./converter_generator SourceName DestinationName
+
+ConverterGeneratorCLI := Object clone do(
+    fromName := System args at(1)
+    toName := System args at(2)
+    currentDirectory := Directory currentWorkingDirectory
+    templateFileName ::= nil
+    extension ::= nil
+
+    generate := method(
+        file := createFile
+        contents := generateContents
+        file setContents(contents)
+        file close
+    )
+
+    createFile := method(
+        fileName := getFileName
+        filePath := currentDirectory .. "/" .. fileName .. "." .. extension
+
+        File exists(filePath) ifTrue(
+            Exception raise(filePath .. " already exists.")
+        )
+
+        return File with(filePath) open
+    )
+
+    getFileName := method(return "Io#{fromName}To#{toName}ConverterMethod" interpolate)
+
+    generateContents := method(templatFileName,
+        template := File with(currentDirectory .. "/" .. templateFileName) open
+        contents := template contents interpolate(self)
+        template close
+        return contents
+    )
+)
+
+ConverterGeneratorCLI setTemplateFileName("ConverterTemplate.hio")
+ConverterGeneratorCLI setExtension("h")
+ConverterGeneratorCLI generate
+
+ConverterGeneratorCLI setTemplateFileName("ConverterTemplate.cio")
+ConverterGeneratorCLI setExtension("c")
+ConverterGeneratorCLI generate

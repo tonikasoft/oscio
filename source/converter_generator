@@ -12,8 +12,7 @@ ConverterGeneratorCLI := Object clone do(
     generate := method(
         file := createFile
         contents := generateContents
-        file setContents(contents)
-        file close
+        file open setContents(contents) close
     )
 
     createFile := method(
@@ -24,7 +23,7 @@ ConverterGeneratorCLI := Object clone do(
             Exception raise(filePath .. " already exists.")
         )
 
-        return File with(filePath) open
+        return File with(filePath)
     )
 
     getFileName := method(return "Io#{fromName}To#{toName}ConverterMethod" interpolate)

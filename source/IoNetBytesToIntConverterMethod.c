@@ -76,7 +76,7 @@ void IoNetBytesToIntConverterMethod_free(IoNetBytesToIntConverterMethod *self) {
 //doc NetBytesToIntConverterMethod convert(value)
 IoObject *IoNetBytesToIntConverterMethod_convert(IoNetBytesToIntConverterMethod *self, IoObject *locals, IoMessage *m) { 
     osc32_t converter;
-    char *value = IoMessage_locals_cStringArgAt_(m, locals, 0);
+    char *value = IoMessage_locals_seqArgAt_(m, locals, 0);
     converter.u = ntohl(*(uint32_t*)value);
 
     return IONUMBER(converter.i);

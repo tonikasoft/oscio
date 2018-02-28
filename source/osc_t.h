@@ -9,4 +9,11 @@ typedef union {
     char b[4];
 } osc32_t;
 
+typedef union {
+    int64_t l;
+    double d;
+    uint64_t u;
+    char b[8];
+} osc64_t;
+
 #endif
